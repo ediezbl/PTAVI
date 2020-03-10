@@ -1,0 +1,61 @@
+[
+ {
+  "etiqueta": "root-layout",
+  "width": "248",
+  "height": "300",
+  "background-color": "blue"
+ },
+ {
+  "etiqueta": "region",
+  "id": "a",
+  "top": "20",
+  "bottom": "",
+  "left": "64",
+  "right": ""
+ },
+ {
+  "etiqueta": "region",
+  "id": "b",
+  "top": "120",
+  "bottom": "",
+  "left": "20",
+  "right": ""
+ },
+ {
+  "etiqueta": "region",
+  "id": "text_area",
+  "top": "100",
+  "bottom": "",
+  "left": "20",
+  "right": ""
+ },
+ {
+  "etiqueta": "img",
+  "src": "http://www.content-networking.com/smil/hello.jpg",
+  "begin": "2s",
+  "dur": "36s"
+ },
+ {
+  "etiqueta": "img",
+  "src": "http://www.content-networking.com/smil/earthrise.jpg",
+  "begin": "12s",
+  "dur": ""
+ },
+ {
+  "etiqueta": "audio",
+  "src": "http://www.content-networking.com/smil/hello.wav",
+  "begin": "1s",
+  "dur": ""
+ },
+ {
+  "etiqueta": "textstream",
+  "src": "http://gsyc.es/~grex/letra.rt",
+  "region": "text_area"
+ },
+ {
+  "etiqueta": "audio",
+  "src": "cancion.ogg",
+  "begin": "4s",
+  "dur": ""
+ }
+]

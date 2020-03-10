@@ -1,0 +1,300 @@
+Práctica 5 - Sesión SIP
+Protocolos para la Transmisión de Audio y Vı́deo en Internet
+Versión 8.0.1 - 6.11.2017
+
+Ejercicios
+
+Creación de repositorio para la práctica
+
+1. Con el navegador, dirı́gete al repositorio ptavi-p5 en la cuenta del
+profesor en GitHub1 y realiza un fork, de manera que consigas tener
+una copia del repositorio en tu cuenta de GitHub. Clona el repositorio
+que acabas de crear a local para poder editar los archivos. Trabaja a
+partir de ahora en ese repositorio, sincronizando los cambios que vayas
+realizando.
+
+Como tarde al final de la práctica, deberás realizar un push para subir
+tus cambios a tu repositorio en GitHub. En esta práctica, al contrario
+que con las demás, se recomienda hacer frecuentes commits, pero el
+push al final.
+
+Análisis de una sesión SIP
+
+Se ha capturado una sesión SIP con Ekiga (archivo sip.cap.gz), que
+se puede abrir con Wireshark2 . Se pide rellenar las cuestiones que se
+plantean en este guión en el fichero p5.txt que encontrarás también
+en el repositorio.
+
+2. Observa que las tramas capturadas corresponden a una sesión SIP
+con Ekiga, un cliente de VoIP para GNOME. Responde a las siguientes
+cuestiones:
+* ¿Cuántos paquetes componen la captura?
+	954 paquetes 
+* ¿Cuánto tiempo dura la captura?
+	56.14 segundos aproximadamente
+* ¿Qué IP tiene la máquina donde se ha efectuado la captura? ¿Se
+trata de una IP pública o de una IP privada? ¿Por qué lo sabes?
+	192.168.1.34 se trata de una ip privada,porque se encuentra en la subred 192.168.0.0, la 	
+	cual es una dirección de subred reservada para direcciones ip privadas 
+
+3. Antes de analizar las tramas, mira las estadı́sticas generales que aparecen en el menú de Statistics. En el apartado de jerarquı́a de protocolos (Protocol Hierarchy) se puede ver el porcentaje del tráfico
+correspondiente al protocolo TCP y UDP.
+* ¿Cuál de los dos es mayor? ¿Tiene esto sentido si estamos hablando
+de una aplicación que transmite en tiempo real?
+	UDP (96.2 % del tráfico) , TCP (2,1 % del tráfico) luego el mayor es UDP y tiene sentido
+	porque RTP se encapsula en UDP porque es un protocolo de transmisión de datos en tiempo
+	real, TCP se encarga más bin del reenvío de paquetes y de la fiabilidad.
+* ¿Qué otros protocolos podemos ver en la jerarquı́a de protocolos?
+	- IPv4
+	- STUN
+	- SIP
+	- RTP
+	- RTCP
+	- DNS
+	- HTTP
+	- ICMP
+	- ARP
+¿Cuales crees que son señal y cuales ruido?
+	Señal --> Tráfico que nos interesa para la resolución de la práctica:
+		(STUN, SIP, RTP, RTCP,STUN)
+	Ruido --> Tráfico que no es interesante para la resolución de la práctica:
+		(IPv4, DNS,HTTP,ICMP,ARP)
+
+4. Observa por encima el flujo de tramas en el menú de Statistics en IO
+Graphs. La captura que estamos viendo incluye desde la inicialización
+(registro) de la aplicación hasta su finalización, con una llamada entremedias.
+* Filtra por sip para conocer cuándo se envı́an paquetes SIP. ¿En
+qué segundos tienen lugar esos envı́os?
+	SIP está enviando paquetes en los siguientes intervalos de tiempo:
+	-segundo 7.343 hasta el 14.610 aproximadamente
+	-segundo 14.426 hasta el 14.610 aproximadamente 
+	-segundo 16.233 hasta 16.460 aproximadamente 
+	-segundo 38.119 hasta 39.229 aproximadamente 
+	-segundo 55.694 hasta 55.859 aproximadamente 
+* Y los paquetes con RTP, ¿cuándo se envı́an?
+	RTP comienza a enviar paquetes desde el segundo 17.169 y los envía ininterrumpidamente
+	hasta el segundo 38.119 aproximadamente.
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+
+5. Analiza las dos primeras tramas de la captura.
+* ¿Qué servicio es el utilizado en estas tramas?
+	DNS --> Domain Name System 
+* ¿Cuál es la dirección IP del servidor de nombres del ordenador
+que ha lanzado Ekiga?
+	La dirección IP del servidor de nombres es --> 80.58.61.250
+* ¿Qué dirección IP (de ekiga.net) devuelve el servicio de nombres?
+	La dirección IP que devuelve el servicio de nombres es --> 86.64.162.35
+6. A continuación, hay más de una docena de tramas TCP/HTTP.
+* ¿Podrı́as decir la URL que se está pidiendo?
+	Si , en la petición en el apartado Host se puede ver que ekiga.net es la máquina.
+	En la propia petición se puede ver que recurso le pide a la máquina (ip).
+	Por lo tanto la URL será http://ekiga.net/ip
+* ¿Qué user agent (UA) la está pidiendo?
+	Ekiga
+* ¿Qué devuelve el servidor?
+	El servidor devuelve HTTP/1.1 200 OK y una dirección ip la cual es:
+	83.36.48.212 la cual es la dirección ip pública del cliente donde se realizó la captura
+* Si lanzamos el navegador web, por ejemplo, Mozilla Firefox, y
+vamos a la misma URL, ¿qué recibimos? ¿Qué es, entonces, lo
+que está respondiendo el servidor?
+	ekiga devuelve 212.128.255.31 , la cual es la dirección ip de la interfaz eno1.
+	Es decir,en esta url, el servidor devuelve siempre una ip,
+7. Hasta la trama 45 se puede observar una secuencia de tramas del
+protocolo STUN.
+* ¿Por qué se hace uso de este protocolo?
+	STUN es un protocolo de red del tipo cliente/servidor que permite a clientes NAT encontrar
+	su dirección IP pública, el tipo de NAT en que se encuentra y el puerto de internet 		
+	asociado con el puerto local a través de la NAT.
+* ¿Podrı́as decir si estamos tras un NAT o no?
+	Como he dicho en el anterior apartado, STUN es un protocolo que se utiliza para la 		
+	obtención de direcciones IP públicas, por tanto, se puede decir que con la aparición de 	
+	este protocolo nos encontramos detrás de una NAT.
+8. La trama 46 es la primera trama SIP. En un entorno como el de Internet, lo habitual es desconocer la dirección IP de la otra parte al
+realizar una llamada. Por eso, todo usuario registra su localización en
+un servidor Registrar. El Registrar guarda información sobre los
+usuarios en un servidor de localización que puede ser utilizado para
+localizar usuarios.
+* ¿Qué dirección IP tiene el servidor Registrar?
+	Dirección IP del servidor --> 86.64.162.35
+* ¿A qué puerto (del servidor Registrar) se envı́an los paquetes
+SIP?
+	Puerto del servidor --> 5060 (Puerto por defecto del protocolo SIP)
+* ¿Qué método SIP utiliza el UA para registrarse?
+	Utiliza REGISTER
+* Además de REGISTER, ¿podrı́as decir qué instrucciones SIP entiende el UA?
+	INVITE, ACK, OPTIONS, BYE, CANCEL, NOTIFY, REFER, MESSAGE.
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+
+9. Fijémonos en las tramas siguientes a la número 46:
+* ¿Se registra con éxito en el primer intento?
+	No se registra con éxito en el primer intento
+* ¿Cómo sabemos si el registro se ha realizado correctamente o no?
+	Mirando la respuesta del servidor SIP el primer intento tiene una respuesta 401 Unauthorized
+	la segunda respuesta del servidor si que existe 200 OK que indica que todo va bien.
+* ¿Podrı́as identificar las diferencias entre el primer intento y el
+segundo de registro? (fı́jate en el tamaño de los paquetes y mira
+a qué se debe el cambio)
+	Si, al primer mensaje de REGISTER le falta el campo authentication, es por esta razón que el 		primer intento es fallido, ya que el servidor no sabe si en ese momento eres quin dice ser.
+* ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica
+las unidades.
+	En el primer mensaje de REGISTER el tiempo de expiración (EXPIRES) es de 3600 segundos
+	En el segundo mensaje de REGISTER el tiempo de expiración (EXPIRES) es de 3600 segundos
+10. Una vez registrados, podemos efectuar una llamada. Vamos a probar
+con el servicio de eco de Ekiga que nos permite comprobar si nos
+hemos conectado correctamente. El servicio de eco tiene la dirección
+sip:500@ekiga.net. Veamos el INVITE de cerca.
+* ¿Puede verse el nombre del que efectúa la llamada, ası́ como su
+dirección SIP?
+	Si puede verse el nombre de quien efectúa la llamada así como su dirección SIP:ç
+	Nombre --> Gregorio Robles
+	Dirección SIP --> sip:grex@ekiga.net
+* ¿Qué es lo que contiene el cuerpo de la trama? ¿En qué formato/protocolo está?
+	El cuerpo de la trama contiene una descripción de inicio de sesión. En este caso el protocolo que
+	se usa es SDP.
+* ¿Tiene éxito el primer intento? ¿Cómo lo sabes?
+	No, se puede ver en el mensaje de respuesta del INVITE 407 Proxy Authentication Required, es decir 
+	requiere una autenticacion primero.
+* ¿En qué se diferencia el segundo INVITE más abajo del primero?
+	En este caso el cliente si que le facilita al servidor el Proxy-Authentication que le faltaba an-
+	teriormente 
+¿A qué crees que se debe esto?
+	Es una cuestión de seguridad, se utiliza para que el servidor SIP este seguro de que el usuario es 
+	quien dice ser.
+11. Una vez conectado, estudia el intercambio de tramas.
+* ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+  	H.261 y RTP.
+	H.261 se utiliza principalmente para la transmisión de video
+	RTP se utiliza principalmente para la gtransmisión de audio.
+* ¿Cuál es el tamaño de paquete de los mismos?
+	RTP tiene un tamaño de 214 bytes y H.261 tiene una longitud variable en toda la captura.
+* ¿Se utilizan bits de padding?
+	No, todas las tramas con RTP y H.261 tienen padding = 0, es decir, utilizan 0 bits de relleno
+* ¿Cuál es la periodicidad de los paquetes (en origen; nota que la
+captura es en destino)?
+	Los paquetes se envían con una periodicidad de 20 ms. Esto es posible verlo en el campo Skew y la
+	diferencia en la llegada del primer paquete 21.28 Skew -1.28, lo que significa que ha llegado 1.28
+	segundos tarde.
+* ¿Cuántos bits/segundo se envı́an?
+	Tenienndo en cuenta solamente los paquetes RTP
+	214 - 19 bytes de cabeceras de ethernet - 16 bytes de cabeceras IP = 179 bytes de datos en audio.
+	179 bytes * 8 bites /1 byte = 1432 bits
+	20 ms = 0.02 segundos
+	1432 bits * 0.02 segundos = 28.64 bits*segundo
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+
+12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una
+opción RTP. Empecemos mirando los flujos RTP.
+* ¿Cuántos flujos hay? ¿por qué?
+	Existen dos flujos de paquete diferentes.
+	g771A --> estándar para la comparación de audio.
+	h261 --> estándar para la compresión de vídeo.
+* ¿Cuántos paquetes se pierden?
+	Analizando RTP Stream Analysis, se puede ver que no se pierde ningún paquete
+* ¿Cuál es el valor máximo del delta? ¿Y qué es lo que significa el
+valor de delta?
+	Max Delta = 1290.44.
+	Es la máxima diferencia que existe entre un paquete enviado y otro recibido.
+	Sería el Di,j de la fórmula del jitter.
+* ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué
+quiere decir eso? ¿Crees que estamos ante una conversación de
+calidad?
+	Mean jitter = 42.50 (media de variación de paquetes)
+	Max jitter = 119.64 (máxima variación de paquetes)
+	Si que nos encontramos en una conversación de calidad ya que el jitter buffer es menor de 100 ms 
+	por defecto en la llamada en concreto es de 50 ms
+13. Elige un paquete RTP de audio. Analiza el flujo de audio en Telephony
+-> RTP -> Stream Analysis.
+* ¿Cuánto valen el delta y el jitter para el primer paquete que
+ha llegado?
+	Delta = 0
+	jiter = 0
+* ¿Podemos saber si éste es el primer paquete que nos han enviado?
+	Si se puede saber por los datos preguntados anteriormente, que el delta = 0 quiere decir, 
+	que no ha habido paquetes retrasados ni paquetes adelantados y que el jitter sea 0 quiere
+	decir que no ha habido paquetes con jitter anterior.
+* Los valores de jitter son menores de 10ms hasta un paquete
+dado. ¿Cuál?
+	Hasta el paquete 247
+* ¿A qué se debe el cambio tan brusco del jitter?
+	A que este paquete llega al destino con un retraso demasiado grande en comparación con los 
+	anteriores, es decir tiene un delta que es muy grande en comparación con los anteriores.
+	En concreto este delta es de (554.74)
+* ¿Es comparable el cambio en el valor de jitter con el del delta?
+¿Cual es más grande?
+	No, y esto se debe a que en la fórmula del jitter se encuentra dividido entre 16.
+	Es mayor el valor de delta ya que solo tiene en cuenta el retraso de los paquetes.
+14. En Telephony selecciona el menú VoIP calls. Verás que se lista la
+llamada de voz IP capturada en una ventana emergente. Selecciona
+esa llamada y pulsa el botón Graph.
+* ¿Cuánto dura la conversación?
+	La conversación tiene una duración de 38.2 segundos aproximadamente
+* ¿Cuáles son sus SSRC? ¿Por qué hay varios SSRCs? ¿Hay CSRCs?
+	SSRC(1) --> 0xbf4afd37
+	SSRC(2) --> 0X43306582
+	La aparición de varios SSRC se debe a que existen dos tipos de flujo (audio y
+	video)
+	En el menú VoIP calls no aparecen CSRCs
+15. Identifica la trama donde se finaliza la conversación.
+* ¿Qué método SIP se utiliza? 
+	BYE
+* ¿En qué trama(s)?
+	En las tramas 924, 925, 927, 933 
+* ¿Por qué crees que se envı́a varias veces?
+ 	Porque en la captura existen problemas, el destino se encuentra inalcanzable,
+	por tanto, se seguirán enviando paquetes hasta alcanzar el 200 OK
+16. Finalmente, se cierra la aplicación de VozIP.
+* ¿Por qué aparece una instrucción SIP del tipo REGISTER?
+	Para darse de baja de usuarios registrados.
+* ¿En qué trama sucede esto?
+	En la trama 950 y vuelve a suceder de nuevo en la trama 952
+* ¿En qué se diferencia con la instrucción que se utilizó con anterioridad (al principio de la sesión)?
+	Se diferencian en que el Expires = 0.
+	Esto es lo que he comentado en el ejercicio anterior, registrarse con expires = 0 para darse de 
+	baja en los usuarios registrados.
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+
+Captura de una sesión SIP
+
+17. Dirı́gete a la web http://www.ekiga.net con el navegador y créate
+una cuenta. Lanza Ekiga, y configúralo con los datos de la cuenta
+que te acabas de crear. Comprueba que estás conectado (En la barra
+al final de la ventana podrás ver “Connected”). Al terminar, cierra
+completamente Ekiga.
+
+18. Captura una sesión SIP de una conversación con el número SIP sip:500@ekigan.net.
+Recuerda que has de comenzar a capturar tramas antes de arrancar
+Ekiga para ver todo el proceso3 .
+
+19. Observa las diferencias en el inicio de la conversación entre el entorno
+del laboratorio y el del ejercicio anterior4 :
+* ¿Se utilizan DNS y STUN? ¿Por qué?
+	DNS se utiliza porque necesitamos saber cual es la dirección ip del servidor.
+	STUN no se utiliza porque en el entorno del laboratorio no nos encontramos tras una NAT
+* ¿Son diferentes el registro y la descripción de la sesión?
+	Los register son idénticos con la salvedad de que el nombre de usuario que se quiere registrar es
+	diferente.
+20. Identifica las diferencias existentes entre esta conversación y la conversación anterior:
+* ¿Cuántos flujos tenemos?
+	Dos flujos y los dos de Speex códec de código abierto para uso en VoIP
+	
+* ¿Cuál es su periodicidad?
+	Se enviaran paquetes cada 20 ms 
+* ¿Cuánto es el valor máximo del delta y los valores medios y
+máximo del jitter?
+	maxDelta = 219.60
+	Mean Jitter = 35.30
+	Max Jitter = 41.84
+* ¿Podrı́as reproducir la conversación desde Wireshark? ¿Cómo?
+Comprueba que poniendo un valor demasiado pequeño para el
+buffer de jitter, la conversación puede no tener la calidad necesaria.
+	Si que se puede reproducir, yendo a RTP Stream Analysis y usando la opción de playstreams 
+* ¿Sabrı́as decir qué tipo de servicio ofrece sip:500@ekiga.net?
+	Es un servicio al que tu llamas y te pone música.
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+
+
+21. Filtra por los paquetes SIP de la captura y guarda únicamente los
+paquetes SIP como p5.pcapng. Abre el fichero guardado para cerciorarte de que lo has hecho bien. Deberás añadirlo al repositorio.
+[Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
+[Al terminar la práctica, realiza un push para sincronizar tu repositorio GitHub]
+

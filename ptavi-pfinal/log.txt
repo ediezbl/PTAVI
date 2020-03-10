@@ -1,0 +1,112 @@
+20191220140940 Starting ...
+20191220140952 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220140952 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="4743"  
+20191220141003 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220141003 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220141011 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220141011 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220141016 Sent to 127.0.0.1:5555 BYE sip:robin@ekiga.net SIP/2.0  
+20191220141016 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220141027 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220141027 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220143603 Finishing ...
+20191220143609 Starting ...
+20191220143624 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220143624 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="1844"  
+20191220143633 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220143633 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220143640 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220143640 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220143646 Sent to 127.0.0.1:5555 BYE sip:robin@ekiga.net SIP/2.0  
+20191220143646 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220143700 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220143700 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220143801 Finishing ...
+20191220143809 Starting ...
+20191220143814 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220143814 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="4813"  
+20191220143822 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220143822 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220143829 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220143829 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220143850 Sent to 127.0.0.1:5555 BYE sip:robin@ekiga.net SIP/2.0  
+20191220143850 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220143904 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220143904 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220145954 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220150019 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220150019 Received from 127.0.0.1:5555 
+20191220150508 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 0  
+20191220150508 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220150713 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220150713 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="3787"  
+20191220150731 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220150731 Received from 127.0.0.1:5555 SIP/2.0 404 User Not Found  
+20191220155857 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220155930 Starting ...
+20191220155935 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220155935 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220155944 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220155944 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220155952 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220155952 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220160108 Finishing ...
+20191220160447 Starting ...
+20191220160452 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220160452 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220160500 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220160500 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220162408 Finishing ...
+20191220162516 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220162516 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220162523 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220162523 Received from 127.0.0.1:5555 
+20191220162529 Starting ...
+20191220162535 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220162535 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220162542 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220162542 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220162701 Finishing ...
+20191220162713 Starting ...
+20191220162718 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220162718 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220162734 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220162734 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220162741 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220162741 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220162906 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220162906 Received from 127.0.0.1:5555 SIP/2.0 200 OK  
+20191220162925 Finishing ...
+20191220162936 Starting ...
+20191220162941 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220162941 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="9887"  
+20191220163050 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220163050 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="9452"  
+20191220163100 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220163100 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220163107 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220163107 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220163152 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220163152 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="8105"  
+20191220163203 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220163203 Received from 127.0.0.1:5555 SIP/2.0 404 User Not Found  
+20191220163212 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220163212 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220163220 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220163220 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220163549 Finishing ...
+20191220164226 Starting ...
+20191220164237 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220164237 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="4965"  
+20191220164245 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220164245 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220164253 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220164253 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
+20191220171654 Finishing ...
+20191220171700 Starting ...
+20191220171705 Sent to 127.0.0.1:5555 REGISTER sip:batman@ekiga.net:6001 SIP/2.0 Expires: 3600  
+20191220171705 Received from 127.0.0.1:5555 SIP/2.0 401 Uauthorized WWW-Authenticate: Digest nonce="580"  
+20191220171710 Sent to 127.0.0.1:5555 INVITE sip:robin@ekiga.net SIP/2.0 Content-Type: application/sdp  v=0 o=batman@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23032 RTP 
+20191220171710 Received from 127.0.0.1:5555 SIP/2.0 100 Trying  SIP/2.0 180 Ringing  SIP/2.0 200 OK Content-Type: application/sdp  v=0 o=robin@ekiga.net 127.0.0.1 s=misesion t=0 m=audio 23031 RTP  
+20191220171718 sent to 127.0.0.1:5555 ACK sip:robin@ekiga.net SIP/2.0  
+20191220171718 sent to 127.0.0.1:5555 ./mp32rtp -i 127.0.0.1 -p  23031< cancion.mp3
